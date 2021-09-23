@@ -18,8 +18,10 @@ package co.potatoproject.plugin.volume.common;
 
 import android.annotation.ColorInt;
 import android.content.Context;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
@@ -157,7 +159,7 @@ public class Utils {
     private static CharSequence emptyToNull(CharSequence str) {
         return str == null || str.length() == 0 ? null : str;
     }
-    
+
     public static boolean setText(TextView tv, CharSequence text) {
         if (Objects.equals(emptyToNull(tv.getText()), emptyToNull(text))) return false;
         tv.setText(text);
@@ -171,5 +173,17 @@ public class Utils {
         final TelephonyManager telephony =
                 (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return telephony != null && telephony.isVoiceCapable();
+    }
+
+    public static boolean isPanelOnLeft(Context context) {
+        boolean isLeft = false;
+        try {
+            Resources res = context.getPackageManager().getResourcesForApplication("com.android.systemui");
+            int resId = res.getIdentifier("config_audioPanelOnLeftSide", "bool", "com.android.systemui");
+            isLeft = res.getBoolean(resId);
+        } catch (NameNotFoundException e) {
+                e.printStackTrace();
+        }
+        return isLeft;
     }
 }

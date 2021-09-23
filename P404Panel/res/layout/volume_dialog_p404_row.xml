@@ -67,18 +67,6 @@
             android:clickable="false"
             android:soundEffectsEnabled="false" />
 
-        <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
-            android:id="@+id/volume_row_app_icon"
-            style="@style/VolumeButtons"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/ripple_drawable_20dp"
-            android:padding="@dimen/volume_row_app_icon_padding"
-            android:layout_marginTop="@dimen/volume_dialog_row_icon_margintop"
-            android:clickable="false"
-            android:tint="@android:color/white"
-            android:soundEffectsEnabled="false"
-            android:scaleType="centerInside" />
     </LinearLayout>
 
     <include layout="@layout/volume_dnd_icon"/>

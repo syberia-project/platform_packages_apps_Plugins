@@ -70,8 +70,8 @@ public class ConfigurableTexts {
     public void remove(final TextView text) {
         mTexts.remove(text);
         mTextLabels.remove(text);
-    } 
- 
+    }
+
     public void update() {
         if (mTexts.isEmpty()) return;
         mTexts.keyAt(0).post(mUpdateAll);

@@ -192,13 +192,12 @@ public class VolumeDialogImpl implements VolumeDialog {
 
     private boolean mExpanded;
 
-    private boolean mLeftVolumeRocker;
-
     private View[] views;
     private Drawable[] defaultDrawables;
     private String[] defaultDrawablesNames;
 
     public VolumeDialogImpl() {}
+    private boolean mLeftVolumeRocker;
 
     @Override
     public void onCreate(Context sysuiContext, Context pluginContext) {
@@ -212,7 +211,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         mAccessibilityMgr = mContext.getSystemService(AccessibilityManager.class);
         mShowActiveStreamOnly = showActiveStreamOnly();
         mHasSeenODICaptionsTooltip = true;
-        mLeftVolumeRocker = Settings.System.getInt(mContext.getContentResolver(), Settings.System.VOLUME_PANEL_ON_LEFT, 0) == 1;
+        mLeftVolumeRocker = Utils.isPanelOnLeft(mContext);
     }
 
     public void init(int windowType, Callback callback) {

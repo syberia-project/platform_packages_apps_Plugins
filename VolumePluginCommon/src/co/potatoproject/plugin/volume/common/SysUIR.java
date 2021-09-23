@@ -70,7 +70,7 @@ public class SysUIR {
     private int sysuiResId(String resType, String resName) {
         return sysuiResId(resType, resName, mContext);
     }
-    
+
     private int sysuiResId(String resType, String resName, Context context) {
         if(mCachedIds.containsKey(resName)) {
             return mCachedIds.get(resName);
